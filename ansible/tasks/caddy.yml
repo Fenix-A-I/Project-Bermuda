@@ -1,0 +1,20 @@
+- name: Install packages
+  ansible.builtin.package:
+    name: "caddy"
+    state: present
+
+- name: Ensure /etc/caddy directory exists
+  ansible.builtin.file:
+    path: /etc/caddy
+    state: directory
+    owner: caddy
+    group: caddy
+    mode: '0755'
+
+- name: Copy Caddyfile to /etc/caddy/
+  ansible.builtin.copy:
+    src: files/Caddyfile
+    dest: /etc/caddy/Caddyfile
+    owner: caddy
+    group: caddy
+    mode: '0644'

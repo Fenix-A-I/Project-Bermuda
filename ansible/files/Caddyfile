@@ -1,0 +1,3 @@
+terminal-development.uosec.org
+
+reverse_proxy :8080

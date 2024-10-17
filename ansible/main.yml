@@ -3,3 +3,6 @@
     - name: Configure Users
       ansible.builtin.include_tasks:
         file: tasks/configure_users.yml
+    - name: Install and configure Caddy
+      ansible.builtin.include_tasks:
+        file: tasks/caddy.yml
