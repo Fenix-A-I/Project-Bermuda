@@ -1,0 +1,20 @@
+Oidc authentication documentation: 
+
+Azure portal information: 
+- Azure account with web app called "bermuda" was made with email: eclauson-pythonpirates@outlook.com
+- To officially use the university this would have to be submitted in a ticket. That information can be found here: https://service.uoregon.edu/TDClient/2030/Portal/KB/ArticleDet?ID=131904
+
+Initial implementation: 
+- The initial implementaion runs from the command line. Using the azure credentials, it redirects the user to a website with a code they must enter to authenticate.
+- permissions in azure only allow work or school accounts (no personal accounts)
+- Because azure is dumb, it will not allow us to add a "uoregon.edu" group. More research shows we would have to fill out the ticket mentioned above for this. To get around this, conditional statements were added after authentication. The plan is to go through these conditionals and redirect depending on them using flask.
+- The code is for some reason needed for the command line implementaion because microsoft uses it as some type of 2FA for the api. 
+
+Flask implementaion: 
+- code is very similar to the command line implementation, but involves redirecting on flask. 
+- a redirect URL is given with the credentials where outlook directly takes users
+
+Sources: 
+https://flask-oidc.readthedocs.io/en/latest/
+https://learn.microsoft.com/en-us/entra/identity-platform/tutorial-web-app-python-register-app
+https://learn.microsoft.com/en-us/entra/identity-platform/tutorial-web-app-python-prepare-app
