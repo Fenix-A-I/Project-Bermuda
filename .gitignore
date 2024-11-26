@@ -4,3 +4,4 @@ __pycache__/
 venv
 instances
 flask/logfile.log
+flask/credentials.json
