@@ -1,0 +1,17 @@
+Introduction:
+Bermuda is a gateway that will act as a foundation for a capture the flag experience. It will securely authenticate users, store credentials for them to have their own linux environment, and track progress in challenges. The only user roles currently are participants, there are no administrator roles. 
+
+Getting Started:
+User will navigate to https://terminal-development.uosec.org/ where they will first be directed to log in with their Univserity of Oregon email. Any email problems should be solved through their microsoft account. 
+
+Using the Platform:
+
+Accessing challenges and retrieving tasks.
+Using the terminal for SSH access to containers.
+Submitting flags and tracking progress.
+Frequently Asked Questions:
+Troubleshooting common user issues (e.g., login problems, container access).
+Contact/support information.
+Best Practices:
+Ethical guidelines for using the platform.
+Tips for solving CTF challenges effectively.
