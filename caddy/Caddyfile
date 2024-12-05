@@ -1,7 +1,0 @@
-localhost {
-    root * /Users/jkhal/Bermuda/Project-Bermuda/flask/templates
-    file_server
-    encode gzip
-}
-
-
