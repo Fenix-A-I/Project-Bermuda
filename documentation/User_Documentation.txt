@@ -5,13 +5,31 @@ Getting Started:
 User will navigate to https://terminal-development.uosec.org/ where they will first be directed to log in with their Univserity of Oregon email. Any email problems should be solved through their microsoft account. 
 
 Using the Platform:
+After a user successfully authenticates they will be able to access three different pages. On the first page they can store ssh keys in order to run the terminal in their own environment. The terminal page will pull up a cali linux terminal on the browswer. The challgne page states all the challenges and shows progress.
 
-Accessing challenges and retrieving tasks.
-Using the terminal for SSH access to containers.
-Submitting flags and tracking progress.
 Frequently Asked Questions:
+- What is a challenge? 
+A challenge us a recreation of a real life problem or vulnerability. Think of it as problem that the user has to solve to get an answer. The answer is what will be turned back into the site to see if you correct completed the challenge. 
+
+
+- Who can participate in a CTF challenge? 
+Anyone! Our services are currently limited to University of Oregon users, however no other scopes limit who can use the application
+
+
 Troubleshooting common user issues (e.g., login problems, container access).
+Verify your internet connection.
+Ensure your SSH key is correctly configured in your user profile.
+Contact support if the issue persists
+
 Contact/support information.
+UO Cybersecurity Club
+
 Best Practices:
-Ethical guidelines for using the platform.
-Tips for solving CTF challenges effectively.
+Respect the Rules:
+Follow the rules and guidelines of the CTF competition. Unauthorized activities outside the scope of the challenges are prohibited.
+Stay Within the Scope:
+Only interact with designated targets and systems. Do not attempt to exploit unrelated systems or services.
+Don’t Share Flags:
+Avoid sharing or posting flags publicly. Encourage fair play among participants.
+Learn, Don’t Cheat:
+Resist using answer keys or walkthroughs unless you've exhausted all efforts and only use them for learning purposes.

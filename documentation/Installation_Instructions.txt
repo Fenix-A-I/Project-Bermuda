@@ -1,0 +1,31 @@
+System Requirements:
+Operating system - fedora family os
+ansible and git must be installed
+
+Required dependencies - Managed by Repository
+
+Pre-Installation Checklist:
+Verify system requirements are installed
+
+Step-by-Step Installation:
+Download/clone the repository https://github.com/Fenix-A-I/Project-Bermuda.
+Installing dependencies should be handled when cloning the Repository
+
+Deployment Instructions:
+1. Go to the config folder by running cd config in the terminal
+2. Run the command cp credentails.json.enc credentials.json
+3. Run ansible-vault decrypt credentials.json, and enter the vault password 
+4. Go to the flask folder by running cd ../flask in the command line 
+5. Run the command source venv/bin/activate to start your environment
+6. Run the command python3 ./routes.py to start a local host
+7. Go to http://localhost:5000 in the browser
+
+Testing Installation:
+Checking system logs for errors.
+Confirming functionality (e.g., accessing the web interface, submitting flags).
+
+Upgrades and Updates:
+Use branches in git and incrementally develop. 
+DO NOT PUSH TO MAIN
+Test code on localhost before merging branches 
+*optional* make backup of code
