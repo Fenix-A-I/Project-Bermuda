@@ -1,0 +1,164 @@
+Project Bermuda: Programmer Documentation
+---
+
+Overview
+
+Project Bermuda is a cybersecurity Capture The Flag (CTF) platform 
+developed for the University of Oregon. It provides a free, safe, and 
+controlled environment for students to practice ethical hacking skills.
+
+The system includes a web interface, backend services, and SSH-based 
+access to Linux environments tailored to individual users.
+
+---
+
+System Components
+
+1. Web Interface
+
+Technologies: HTML, CSS, JavaScript, Flask templates  
+Purpose: Provides features for authentication, configuration, challenge 
+tracking, and terminal access.
+
+Key Pages:
+- landing.html: Welcomes users and directs them to authentication
+- index.html: Displays landing and authentication options
+- ssh_entry.html: Manages SSH key submissions and settings
+- home.html: Lists challenges and tracks progress
+- terminal.html: Provides terminal access to user containers
+
+2. Backend Services
+
+Framework: Flask (Python)  
+Purpose: Handles user authentication, session management, challenge 
+interactions, and container lifecycle management.
+
+Main Files:
+- routes.py: Flask routes and SocketIO events
+- db.py: Defines database models using SQLAlchemy
+
+3. Database
+
+Technology: MariaDB  
+Purpose: Stores user credentials, session data, and challenge progress.
+
+Tables Defined in db.py:
+- users: Stores user information, including email and container details
+- challenge_solves: Tracks challenges solved by users
+- webterm_sessions: Manages active terminal sessions
+- ssh_creds: Stores encrypted SSH credentials for users
+
+4. SSH Server
+
+Language: Golang  
+Purpose: Manages SSH-based access to user-specific Linux environments 
+through Podman containers.
+
+---
+
+Key Functionalities
+
+Authentication
+
+Users log in with their @uoregon.edu email.  
+Microsoft OAuth validates credentials, and user profiles are created 
+in the database.
+
+Challenges
+
+Users can view and solve challenges by submitting flags. The backend 
+verifies flags and updates progress in the database.
+
+Terminal Access
+
+The system checks for an active container. If none exists, it creates 
+one and provides real-time terminal access via SocketIO.
+
+---
+
+Codebase Overview
+
+Database Models (db.py)
+
+1. User Model  
+   Fields: id, email, container_name, active, last_seen  
+   Purpose: Represents users and their session states  
+
+2. Challenge_Solve Model  
+   Fields: id, challenge_id, user_id  
+   Purpose: Tracks solved challenges per user  
+
+3. Terminal_Session Model  
+   Fields: id, fd, pid, user_id  
+   Purpose: Tracks active terminal sessions  
+
+4. SSH_Cred Model  
+   Fields: id, hashed_password, ssh_key, user_id  
+   Purpose: Stores encrypted SSH credentials for secure access  
+
+Flask Routes (routes.py)
+
+1. User Management  
+   - /authenticate: Handles Microsoft OAuth authentication  
+   - /callback: Processes login and redirects users  
+   - /logout: Logs users out and clears sessions  
+
+2. Challenges  
+   - /challenges: Lists challenges and verifies solutions  
+
+3. Terminal Access  
+   - /terminal: Renders terminal interface  
+   - /pty-input: Handles real-time user input in the terminal  
+
+---
+
+Dynamic Models
+
+Authentication Flow
+
+User logs in via Microsoft OAuth.  
+The backend verifies credentials and creates or updates the user profile.  
+The user is redirected to the configuration or challenge page.
+
+Challenge Progress
+
+User submits a flag for a challenge.  
+The backend verifies the flag and updates the user’s progress in the 
+database.
+
+Container Management
+
+The backend checks for an existing container when the user accesses 
+the terminal.  
+A new container is created if no active session exists.
+
+---
+
+Troubleshooting
+
+Authentication Errors  
+- Ensure valid @uoregon.edu credentials.  
+- Check OAuth settings in Flask configuration.  
+
+Database Connectivity  
+- Verify database credentials and connectivity in config.json.  
+
+Terminal Issues  
+- Restart Podman if container creation fails.  
+- Ensure PTY processes are running correctly.  
+
+---
+
+Future Additions
+
+Real-Time Challenge Progress  
+- Add real-time tracking for challenges with instant feedback.  
+
+Leaderboards and Metrics  
+- Introduce leaderboards to encourage competition among users.  
+
+Multi-Domain Authentication  
+- Expand to support additional university domains (e.g., other .edu 
+  accounts).  
+
+---
